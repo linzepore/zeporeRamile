@@ -33,6 +33,8 @@ class Project(object):
         self.files = project_processor.process()
         # 2. Process each file
         for file in self.files:
+            # Add a bolded line for each file's name
+            self.export_bold("\n"+file.file_name+"\n")
             for output in file_processor.process(file):
                 self.export(output)
                 file.extracted_line()
@@ -75,5 +77,17 @@ class Project(object):
             if self.paragraph is None:
                 self.paragraph = self.output_file.paragraphs[0]
             self.paragraph.add_run(line)
+        self.info.lines_extracted += 1
+        return
+
+    def export_bold(self, line):
+        if self.output:
+            # self.output_file.write(line)
+            # if not line.endswith('\n'):
+            #     self.output_file.write('\n')
+            if self.paragraph is None:
+                self.paragraph = self.output_file.paragraphs[0]
+            run = self.paragraph.add_run(line)
+            run.font.bold = True
         self.info.lines_extracted += 1
         return
