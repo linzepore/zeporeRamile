@@ -4,7 +4,7 @@ from ramile.processors.c_style_comment_block_filter import CStyleCommentBlockFil
 from ramile.processors.double_slash_comment_filter import DoubleSlashCommentFilter
 
 
-class JavaProcessor(FileProcessorBase):
+class PyProcessor(FileProcessorBase):
     expected_extensions = ['.py']
 
     def __init__(self):

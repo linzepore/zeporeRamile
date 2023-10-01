@@ -1,6 +1,3 @@
-import io
-
-
 class FileProcessorBase(object):
     """ Base class for file processors. The processor for each lanuage should inherit from this class.
     """
@@ -23,7 +20,7 @@ class FileProcessorBase(object):
     def process(self, file):
         """ Processes a file and extracts lines out of it.
         """
-        with io.open(file.file_path, 'r', encoding='utf-8') as open_file:
+        with open(file.file_path, 'r', encoding='utf-8') as open_file:
             last_line = None
             for original_line in open_file:
                 if self.process_line(file, original_line):
@@ -78,12 +75,12 @@ class FileProcessor(object):
         """
         self.__cache_processor(JsProcessor())
         self.__cache_processor(JavaProcessor())
+        self.__cache_processor(PyProcessor())
         self.__cache_processor(PhpProcessor())
         self.__cache_processor(HtmlProcessor())
         self.__cache_processor(CssProcessor())
         self.__cache_processor(SwiftProcessor())
         self.__cache_processor(OCProcessor())
-        self.__cache_processor(GoProcessor())
         return
 
     def __get_cached_processor(self, extension):
@@ -100,9 +97,9 @@ from ramile.processors.blank_line_filter import BlankLineFilter
 from ramile.processors.comment_block_filter import CommentBlockFilter
 from ramile.processors.js_processor import JsProcessor
 from ramile.processors.java_processor import JavaProcessor
+from ramile.processors.py_processor import PyProcessor
 from ramile.processors.php_processor import PhpProcessor
 from ramile.processors.html_processor import HtmlProcessor
 from ramile.processors.css_processor import CssProcessor
 from ramile.processors.swift_processor import SwiftProcessor
 from ramile.processors.oc_processor import OCProcessor
-from ramile.processors.go_processor import GoProcessor
