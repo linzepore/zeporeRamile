@@ -9,6 +9,11 @@ Currently Ramile has below features:
 
 Tested under python 3.6.1.
 
+## Zepore's Extension
+
+- Add python support
+- Add file name output
+
 ## Installation
 
 Right now we can only run Ramile from source code. In the future it may be uploaded to pypi.
