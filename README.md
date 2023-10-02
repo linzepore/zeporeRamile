@@ -13,6 +13,7 @@ Tested under python 3.6.1.
 
 - Add python support
 - Add file name output
+- Provide one template in [ramile/data](https://github.com/linzepore/zeporeRamile/tree/master/ramile/data)
 
 ## Installation
 
